@@ -1,8 +1,10 @@
 <p>courses-table works!</p>
+
 <div class="container">
     <table class="table table-bordered text-center">
       <thead>
         <tr>
+          <th>index</th>
           <th>description</th>
           <th>img</th>
           <th>longDescription</th>
@@ -12,24 +14,37 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of AllCourses">
-          <td>{{course.description}}</td>
-          <td>
-            <img style="width: 14%;" src={{course.iconUrl}} alt="">
-          </td>
-          <td>{{course.longDescription}}</td>
-          <td>{{course.lessonsCount}}</td>
-          <td>{{course.category}}</td>
-          <td >
-            <button type="button" class="btn btn-outline-success" >View</button> &nbsp;
-            <button type="button" class="btn btn-outline-warning">Edit</button> &nbsp;
-            <button type="button" class="btn btn-outline-danger">Delete</button>
+        @for (course of AllCourses; track course 
+           ;let index= $index
+           ;let count = $count
+           ;let even=$even
+           ;let odd =$odd) {
+          <tr >
+            <td>{{index}}+{{count}}+{{even}}+{{odd}}</td>
+            <td>{{course.description}}</td>
+            @if (course.iconUrl) {
+              <td><img style="width: 14%;" src={{course.iconUrl}} alt=""></td>
+              
+            }@else{
+              
+              <td><span>no image</span></td>
+            }
+            <td>{{course.longDescription}}</td>
+            <td>{{course.lessonsCount}}</td>
+            <td [ngClass]=" course.category=='BEGINNER'?'beginner':'' ">{{course.category}}  </td>
+            <td >
+              <button type="button" class="btn btn-outline-success" (click)="ViewCourse(course)" >View</button> &nbsp;
+              <button type="button" class="btn btn-outline-warning">Edit</button> &nbsp;
+              <button type="button" class="btn btn-outline-danger">Delete</button>
+            </td>
+          </tr>
           
-          </td>
-
-        </tr>
-
+        }
+        @empty {
+          no data
+        }
+        
+      
       </tbody>
     </table>
   </div>
-  

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import{ICourse}from '../Interfaces/ICourse';
+import { COURSES } from '../Data/db-data';
 
 @Component({
   selector: 'courses-add-edite',
@@ -8,5 +9,9 @@ import{ICourse}from '../Interfaces/ICourse';
 })
 export class CoursesAddEditeComponent {
 //@Input() AddEditObj!:ICourse;    //optional input prop
-@Input({required:true}) AddEditObj!:ICourse;  //required input prop
+ AddEditObj!:ICourse;  //required input prop
+AddCourse(obj:ICourse){
+  debugger
+COURSES.push(obj)
+}
 }

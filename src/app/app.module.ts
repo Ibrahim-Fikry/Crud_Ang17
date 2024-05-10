@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CoursesBaseComponent } from './courses-base/courses-base.component';
 import { CoursesAddEditeComponent } from './courses-add-edite/courses-add-edite.component';
 import { CoursesTableComponent } from './courses-table/courses-table.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CoursesTableComponent } from './courses-table/courses-table.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

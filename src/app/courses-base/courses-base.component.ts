@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { COURSES } from '../Data/db-data';
+import { ICourse } from './../Interfaces/ICourse';
 
 @Component({
   selector: 'courses-base',
@@ -9,7 +10,7 @@ import { COURSES } from '../Data/db-data';
 export class CoursesBaseComponent {
   //#  region  prop
   Visable:boolean=false;
-  CourseObj=COURSES[0];
+  CourseObj!:ICourse;
   //#endregion
   
   //#  region  function

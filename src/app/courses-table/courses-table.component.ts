@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output,  } from '@angular/core';
 import { COURSES } from '../Data/db-data';
 
 @Component({
@@ -8,4 +8,11 @@ import { COURSES } from '../Data/db-data';
 })
 export class CoursesTableComponent {
 AllCourses=COURSES;
+@Output() itemView:any;
+
+ViewCourse(obj :any)
+{
+  this.itemView=obj;
+}
+
 }
